@@ -44,8 +44,8 @@ services:
   nginx:
     restart: always
     depends_on:
-      - section_08_server
-      - section_08_client
+      - api
+      - client
     build:
       context: ./nginx
       dockerfile: Dockerfile.dev
