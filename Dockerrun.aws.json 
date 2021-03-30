@@ -1,0 +1,39 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "gustavoarmelin/multi-client",
+            "hostname": "section_08_client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "gustavoarmelin/multi-server",
+            "hostname": "section_08_server",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "gustavoarmelin/multi-worker",
+            "hostname": "section_08_worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "gustavoarmelin/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "link": [
+                "client",
+                "server"
+            ]
+        }
+    ]
+}
