@@ -25,6 +25,7 @@
         {
             "name": "nginx",
             "image": "gustavoarmelin/multi-nginx",
+            "hostname": "nginx",
             "essential": true,
             "portMappings": [
                 {
@@ -32,7 +33,7 @@
                     "containerPort": 80
                 }
             ],
-            "link": [
+            "links": [
                 "client",
                 "server"
             ],
